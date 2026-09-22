@@ -10,7 +10,8 @@ each line, not just an overall verdict:
    (banned words, no legal advice framing, journal judgment-call framing).
 2. No archaic legalese (therefore, thereto, therein, whereas, etc.).
 3. Every factual/legal claim has a working, verified link.
-4. Reads like Jared, not an AI — run past `clo-humanize-voice`
+4. Reads like Jared, not an AI — run past `clo-humanize-writing` first,
+   then `clo-humanize-voice`
    calibration checks to confirm it's not just
    human-sounding but specifically his voice.
 5. Title and preview text are accurate to the body (no bait).

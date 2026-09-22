@@ -5,6 +5,7 @@
     "skill": {
       "*": "ask",
       "clo-persuasion-coach": "allow",
+      "clo-humanize-writing": "allow",
       "clo-humanize-voice": "allow",
       "clo-new-post": "allow",
       "clo-publish-check": "allow",
