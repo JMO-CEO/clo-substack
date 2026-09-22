@@ -1,0 +1,31 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENT.md", "AGENTS.md", "MEMORY.md", "BOARD.md"],
+  "permission": {
+    "skill": {
+      "*": "ask",
+      "clo-persuasion-coach": "allow",
+      "clo-humanize-voice": "allow",
+      "clo-new-post": "allow",
+      "clo-publish-check": "allow",
+      "clo-research-sources": "allow",
+      "clo-comic-craft": "allow",
+      "clo-leland-ops": "allow"
+    },
+    "question": "allow"
+  },
+  "agent": {
+    "clo-orchestrator": {
+      "permission": {
+        "task": {
+          "*": "deny",
+          "clo-researcher": "allow",
+          "clo-article-writer": "allow",
+          "clo-comic-writer": "allow",
+          "clo-visual-builder": "allow",
+          "clo-editor": "allow"
+        }
+      }
+    }
+  }
+}

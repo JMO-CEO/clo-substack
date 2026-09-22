@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual 60 Scoreboard - Top Hollywood Prompts</title>
+<style>
+:root{--bg:#000;--card:#0A0328;--acc:#7D12FF;--txt:#D0D2D8;--lime:#d1fe17}
+*{box-sizing:border-box}body{background:var(--bg);color:var(--txt);font-family:Inter,Arial,sans-serif;margin:0;padding:16px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:#888;font-size:13px;margin-bottom:12px}
+.top{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:16px}
+.card{background:var(--card);border:1px solid #2a2a4a;border-radius:10px;padding:12px}
+.card h2{font-size:15px;margin:0 0 8px;color:#fff}
+ol{margin:0;padding-left:20px;font-size:13px}li{margin:4px 0}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
+button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;font-weight:700}
+button.ghost{background:#222}.filt{margin-bottom:10px}
+select.flt{background:#111;color:#fff;border:1px solid #444;border-radius:6px;padding:6px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{border:1px solid #2a2a4a;padding:5px;text-align:center}
+th{background:#141434;position:sticky;top:0}
+td.pid{text-align:left;font-weight:700;white-space:nowrap}
+td.prompt{text-align:left;max-width:280px;font-size:11px;color:#aaa}
+select.s{background:#111;color:var(--lime);border:1px solid #444;border-radius:6px;padding:3px;width:46px;font-weight:700}
+tr.done td.pid{color:var(--lime)}
+.total{font-weight:700;color:#fff}
+.src{font-size:11px;color:#888}
+</style>
+</head>
+<body>
+<h1>Manual 60 Scoreboard</h1>
+<div class="sub">Score 1-4 per metric (1 fail, 2 weak, 3 good, 4 best). Max 32. Auto saves in browser. Export CSV for records.</div>
+<div class="top">
+<div class="card"><h2>Top 3 Images</h2><ol id="topImg"><li>Score prompts to rank</li></ol></div>
+<div class="card"><h2>Top 3 Videos</h2><ol id="topVid"><li>Score prompts to rank</li></ol></div>
+<div class="card"><h2>Best Source (mean of its 6)</h2><ol id="topSrc"><li>Score prompts to rank</li></ol></div>
+</div>
+<div class="bar">
+<button onclick="exportCSV()">Export CSV</button>
+<button class="ghost" onclick="clearAll()">Clear scores</button>
+<span id="count"></span>
+</div>
+<div class="filt">Filter: <select class="flt" id="flt" onchange="render()"><option value="">All 60</option><option value="image">Images only</option><option value="video">Videos only</option><option>S01</option><option>S02</option><option>S03</option><option>S04</option><option>S05</option><option>S06</option><option>S07</option><option>S08</option><option>S09</option><option>S10</option></select></div>
+<table><thead><tr>
+<th>ID</th><th>Type</th><th>Src</th><th>Prompt</th>
+<th title="Sharp eyes + catchlight">Eyes</th><th title="Pores, not plastic">Skin</th><th title="Hands coherent">Hands</th><th title="Text spelling">Text</th><th title="Light direction matches prompt">Light</th><th title="Camera move executed">Cam</th><th title="Emotion reads">Emo</th><th title="Consistency across 3">Cons</th><th>Total</th>
+</tr></thead><tbody id="body"></tbody></table>
+<script>
+const M=["eyes","skin","hands","text","light","cam","emo","cons"];
+const P=[
+["S01-I1","image","S01","Calm portrait, Rembrandt key left 4:1 fill, 85mm f/2.8, pores, Portra 400"],
+["S01-I2","image","S01","Tradesperson workshop, north window, 35mm f/2, grain, contact shadows"],
+["S01-I3","image","S01","Golden backlit portrait, bounce fill, 85mm f/1.8, flyaway strands"],
+["S01-V1","video","S01","Lockoff head turn left-right once, window light, no slowmo"],
+["S01-V2","video","S01","Dolly in on hands woodwork, dust shaft, natural speed"],
+["S01-V3","video","S01","Static closeup, rain window behind, practical lamp right, teal-orange"],
+["S02-I1","image","S02","Linen jacket golden hour grass, 85mm f/1.4, grain, rule of thirds"],
+["S02-I2","image","S02","Watch on stone, navy velvet, overhead softbox, Fresnel macro"],
+["S02-I3","image","S02","Character sheet front/3-4/profile, grey, 50mm f/4 even"],
+["S02-V1","video","S02","Tracking warehouse white dress walk, dust, gimbal smooth"],
+["S02-V2","video","S02","Orbit watch, crown rotates once, no motion blur"],
+["S02-V3","video","S02","Handheld market walk, overcast, desat, subtle shake"],
+["S03-I1","image","S03","Neon Hong Kong alley, 35mm anamorphic, pink-blue edge light"],
+["S03-I2","image","S03","Desert epic low 24mm, dust, golden rim, teal-orange"],
+["S03-I3","image","S03","Macro beauty 85mm f/2.8, softbox left, pores no airbrush"],
+["S03-V1","video","S03","Push in 20pct alley, rain holds, 1 anamorphic flare"],
+["S03-V2","video","S03","Crane up desert silhouette, jacket moves once"],
+["S03-V3","video","S03","Locked macro blink once, breathing only"],
+["S04-I1","image","S04","Store fluorescent + neon, 35mm grain, glass reflection"],
+["S04-I2","image","S04","Poster warrior peak sunset, title-safe top third"],
+["S04-I3","image","S04","Sneakers white seamless, 50mm f/8, stitching sharp"],
+["S04-V1","video","S04","I2V store lean forward once, neon buzz, no cam move"],
+["S04-V2","video","S04","Poster zoom out 10pct, clouds drift, cape moves"],
+["S04-V3","video","S04","Shoe turntable 15deg, shadow slides"],
+["S05-I1","image","S05","Enfield Ladakh curve, high sun right, 35mm f/5.6 doc color"],
+["S05-I2","image","S05","Temple dawn snow blue shadow warm edge, 24mm deep"],
+["S05-I3","image","S05","Night stall flame burst, tungsten + cool ambient, hands sharp"],
+["S05-V1","video","S05","Track bike 3s then lock, dust natural, no slowmo"],
+["S05-V2","video","S05","Static temple sunrise, smoke L-R, light warms"],
+["S05-V3","video","S05","Locked stall flame burst once, hands coherent"],
+["S06-I1","image","S06","Tokyo rain night back view, anamorphic 40mm noir"],
+["S06-I2","image","S06","Retriever cliff sunset spray, 70mm documentary fur"],
+["S06-I3","image","S06","Minimal launch white void, hero centered negative space"],
+["S06-V1","video","S06","Kling env-first Tokyo walk, dolly behind, SFX rain+neon"],
+["S06-V2","video","S06","Runway physics pour hits rock sprays, drone pullback"],
+["S06-V3","video","S06","Veo retriever run L-R, wind+waves audio, ends hold"],
+["S07-I1","image","S07","Navy velvet tungsten pool top-down, luxury space"],
+["S07-I2","image","S07","Car wet asphalt doubled reflections, overcast 35mm"],
+["S07-V1","video","S07","Locked velvet pedestal, light warms, 240fps feel"],
+["S07-I3","image","S07","Silk dress frozen, spot above, glossy floor hint"],
+["S07-V2","video","S07","Static car rain ripples, reflections hold, no drift"],
+["S07-V3","video","S07","Locked portrait silk settles, breathing only"],
+["S08-I1","image","S08","Warrior peak golden, melancholic armor detail"],
+["S08-I2","image","S08","Factory night moon slit, shadow shape, dread space"],
+["S08-I3","image","S08","Alley dusk vertical chase frame headroom 9:16"],
+["S08-V1","video","S08","Track warrior looks camera end, rain, melancholic"],
+["S08-V2","video","S08","Push 20pct factory shadow shifts s3 freeze, dread"],
+["S08-V3","video","S08","Vertical alley run handheld subtle, dusk holds"],
+["S09-I1","image","S09","Rembrandt woman grey, key45L fill4:1 rim3200K vs 5600K 85mm"],
+["S09-I2","image","S09","Amber key hoodie, min fill, blue rim jaw edge"],
+["S09-I3","image","S09","Bottle white seamless softboxL fillR rim top raw"],
+["S09-V1","video","S09","Locked rembrandt blink once, 8:1 holds"],
+["S09-V2","video","S09","Locked hoodie turn 10deg, rim pulses once"],
+["S09-V3","video","S09","Locked bottle 10deg turn, highlights slide"],
+["S10-I1","image","S10","Tokyo 2AM Alexa anamorphic40 T2.8 teal-orange BR2049"],
+["S10-I2","image","S10","Cowboy IMAX 24mm 5219 grain Ford symmetry rim dust"],
+["S10-I3","image","S10","Interrogation overhead Fincher bleach bypass deep focus"],
+["S10-V1","video","S10","Dolly in Tokyo walker, steam, 1 flare"],
+["S10-V2","video","S10","Static cowboy horse steps once, dust sunset holds"],
+["S10-V3","video","S10","Locked room suspect leans s3, flicker once"]
+];
+let S={};try{S=JSON.parse(localStorage.getItem("m60")||"{}")}catch(e){S={}};
+function get(id){return S[id]||{}}
+function set(id,m,v){if(!S[id])S[id]={};S[id][m]=v;localStorage.setItem("m60",JSON.stringify(S));render()}
+function tot(id){let t=0,n=0;M.forEach(m=>{const v=get(id)[m];if(v){t+=+v;n++}});return{t,n}}
+function render(){
+const f=document.getElementById("flt").value;
+const tb=document.getElementById("body");tb.innerHTML="";
+let scored=0;
+P.forEach(r=>{const[id,ty,src,pr]=r;if(f&&(f==="image"||f==="video"?ty!==f:src!==f))return;
+const{t,n}=tot(id);if(n===8)scored++;
+let cells=M.map(m=>`<td><select class="s" onchange="set('${id}','${m}',this.value)"><option value="">-</option>${[1,2,3,4].map(v=>`<option ${get(id)[m]==v?"selected":""}>${v}</option>`).join("")}</select></td>`).join("");
+tb.innerHTML+=`<tr class="${n===8?"done":""}"><td class="pid">${id}</td><td>${ty}</td><td class="src">${src}</td><td class="prompt">${pr}</td>${cells}<td class="total">${n? t+" / "+n:"-"}</td></tr>`});
+document.getElementById("count").textContent=scored+" / 60 fully scored";
+const rk=a=>a.filter(x=>x.n===8).sort((a,b)=>b.t-a.t);
+const imgs=rk(P.filter(r=>r[1]==="image").map(r=>({id:r[0],...tot(r[0])})));
+const vids=rk(P.filter(r=>r[1]==="video").map(r=>({id:r[0],...tot(r[0])})));
+document.getElementById("topImg").innerHTML=imgs.slice(0,3).map(x=>`<li>${x.id} - ${x.t}/32</li>`).join("")||"<li>Score images to rank</li>";
+document.getElementById("topVid").innerHTML=vids.slice(0,3).map(x=>`<li>${x.id} - ${x.t}/32</li>`).join("")||"<li>Score videos to rank</li>";
+const srcs={};["S01","S02","S03","S04","S05","S06","S07","S08","S09","S10"].forEach(s=>{
+const items=P.filter(r=>r[2]===s).map(r=>tot(r[0])).filter(x=>x.n===8);
+if(items.length)srcs[s]=(items.reduce((a,b)=>a+b.t,0)/items.length).toFixed(1)+" avg ("+items.length+"/6)"});
+const se=Object.entries(srcs).sort((a,b)=>parseFloat(b[1])-parseFloat(a[1]));
+document.getElementById("topSrc").innerHTML=se.slice(0,5).map(x=>`<li>${x[0]} - ${x[1]}</li>`).join("")||"<li>Score prompts to rank</li>";
+}
+function exportCSV(){
+let c="prompt_id,type,source,"+M.join(",")+",total,notes\n";
+P.forEach(r=>{const[id,ty,src]=r;const g=get(id);const{t}=tot(id);
+c+=id+","+ty+","+src+","+M.map(m=>g[m]||"").join(",")+","+t+",\n"});
+const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([c],{type:"text/csv"}));a.download="manual60-scores.csv";a.click();
+}
+function clearAll(){if(confirm("Clear all scores?")){S={};localStorage.removeItem("m60");render()}}
+render();
+</script>
+</body>
+</html>

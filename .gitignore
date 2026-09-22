@@ -1,0 +1,21 @@
+# CLO - never commit secrets or local state
+.opencode/node_modules/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Secrets - never commit
+*client_secret*.json
+*.key.json
+.env
+.env.*
+credentials*.json
+auth.json
+
+# OpenCode local state
+.opencode/*.log
+
+# OneDrive lock files
+~$*
+*.tmp
