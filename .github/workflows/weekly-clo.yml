@@ -33,20 +33,20 @@ jobs:
       - name: Install image renderer
         run: pip install --quiet Pillow
 
-      - name: Run OpenCode CLO team (primary model)
-        id: primary
+      - name: Run OpenCode CLO team (tier 1)
+        id: tier1
         continue-on-error: true
-        timeout-minutes: 14
+        timeout-minutes: 9
         uses: anomalyco/opencode/github@latest
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          model: google/gemini-3.5-flash-lite
+          model: google/gemini-3.7-flash
           use_github_token: true
           prompt: |
-            You run on google/gemini-3.5-flash-lite. Record exactly that string in meta.json model_text.
+            You run on google/gemini-3.7-flash. Record exactly that string in meta.json model_text.
             Solo run in this repo, ONE session, never delegate, Task tool is disabled.
             Date for this run: ${{ steps.rundate.outputs.today }}. Use folder drafts/${{ steps.rundate.outputs.today }}.
             Follow prompts/orchestrate-clo.md exactly, all phases inline: research, article, 5 comic buyer notes, visual set with rotation plus brand lock, ONE rotating deep track by ISO week mod 4 (0 platform brief, 1 dm-pack, 2 image-prompt-lab, 3 article-prompt-lab), gate plus meta.
@@ -57,21 +57,47 @@ jobs:
             If the text model returns overload or high demand errors: sleep 120 once, retry once, then stop and save partial files with meta.json status "partial-overload". Never burn the run into timeout.
             Never push secrets. Work on the checked-out files; do not push directly. Partial files beat no files.
 
-      - name: Run OpenCode CLO team (fallback model)
-        id: fallback
-        if: steps.primary.outcome == 'failure'
-        timeout-minutes: 14
+      - name: Run OpenCode CLO team (tier 2)
+        id: tier2
+        if: steps.tier1.outcome == 'failure'
+        continue-on-error: true
+        timeout-minutes: 9
         uses: anomalyco/opencode/github@latest
         env:
           GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          model: google/gemini-2.5-flash-lite
+          model: google/gemini-3.5-flash-lite
           use_github_token: true
           prompt: |
-            You run on google/gemini-2.5-flash-lite (fallback, primary was overloaded). Record exactly that string in meta.json model_text.
-            The primary run may have left partial files in drafts/${{ steps.rundate.outputs.today }}. Resume from them: keep finished files, complete the missing phases.
+            You run on google/gemini-3.5-flash-lite (tier 2, tier 1 was overloaded). Record exactly that string in meta.json model_text.
+            The tier 1 run may have left partial files in drafts/${{ steps.rundate.outputs.today }}. Resume from them: keep finished files, complete the missing phases.
+            Solo run in this repo, ONE session, never delegate, Task tool is disabled.
+            Date for this run: ${{ steps.rundate.outputs.today }}. Use folder drafts/${{ steps.rundate.outputs.today }}.
+            Follow prompts/orchestrate-clo.md exactly, all phases inline: research, article, 5 comic buyer notes, visual set with rotation plus brand lock, ONE rotating deep track by ISO week mod 4 (0 platform brief, 1 dm-pack, 2 image-prompt-lab, 3 article-prompt-lab), gate plus meta.
+            Output is 9 core files plus meta.json plus 1 rotation file: article-draft.md, note-1.md through note-5.md, cover.svg, cover.png, image-prompt-pack.md, video-script-pack.md, research-brief.md, and the rotation file for this week.
+            Brand lock v1 in prompts/brand-clo.md: Ink Black #0B0B10, Signal Yellow #FFD21F hero, Hazard Magenta #FF2E7E villain only, Paper White #F5F1E6. Locked overlay appended verbatim to every visual prompt.
+            Video prompts target fal.ai image to video (Kling 3 Pro or Seedance 2.0 primary, 15s, 9:16, native audio on). Prompt packs only, never generate, never spend.
+            DMs are drafts only, never send. Recommendations only, never edit .opencode, skills, prompts, opencode.json, or workflow files.
+            If the text model returns overload or high demand errors: sleep 120 once, retry once, then stop and save partial files with meta.json status "partial-overload". Never burn the run into timeout.
+            Never push secrets. Work on the checked-out files; do not push directly. Partial files beat no files.
+
+      - name: Run OpenCode CLO team (tier 3)
+        id: tier3
+        if: steps.tier1.outcome == 'failure' && steps.tier2.outcome == 'failure'
+        timeout-minutes: 9
+        uses: anomalyco/opencode/github@latest
+        env:
+          GOOGLE_GENERATIVE_AI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          model: google/gemini-3.1-flash-lite
+          use_github_token: true
+          prompt: |
+            You run on google/gemini-3.1-flash-lite (tier 3, tiers 1 and 2 were overloaded). Record exactly that string in meta.json model_text.
+            Earlier tiers may have left partial files in drafts/${{ steps.rundate.outputs.today }}. Resume from them: keep finished files, complete the missing phases.
             Solo run in this repo, ONE session, never delegate, Task tool is disabled.
             Date for this run: ${{ steps.rundate.outputs.today }}. Use folder drafts/${{ steps.rundate.outputs.today }}.
             Follow prompts/orchestrate-clo.md exactly, all phases inline: research, article, 5 comic buyer notes, visual set with rotation plus brand lock, ONE rotating deep track by ISO week mod 4 (0 platform brief, 1 dm-pack, 2 image-prompt-lab, 3 article-prompt-lab), gate plus meta.

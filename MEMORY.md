@@ -26,7 +26,7 @@
 - Zero cross-reads with JV OS or Digital Legends folders.
 - WEEKLY cadence: Tue 10pm Denver auto draft (cron `0 4 * * 3`, flip to `0 5 * * 3` after Nov 1). Wed morning Jared reviews and ships to Substack plus blog. Notes drip Mon to Fri manually.
 - Text model: google/gemini-3.5-flash-lite via GEMINI_API_KEY secret, exported as GOOGLE_GENERATIVE_AI_API_KEY in the workflow. The model writes prompt packs. Humans run fal.ai by hand.
-- Fallback model: google/gemini-2.5-flash-lite on the same key. The workflow runs primary (14 min cap), then fallback on failure (14 min cap). Each run records its model string in meta.json model_text.
+- Text model cascade, all on the same key: tier 1 google/gemini-3.7-flash, tier 2 google/gemini-3.5-flash-lite, tier 3 google/gemini-3.1-flash-lite. Each tier capped at 9 min. Each run records its model string in meta.json model_text.
 - Video: fal.ai image to video, Kling 3 Pro or Seedance 2.0 primary (15s, 9:16, native audio on), 2x Veo 3.1 8s fallback. Manual v1, the Action never spends.
 
 ## Corrections log
