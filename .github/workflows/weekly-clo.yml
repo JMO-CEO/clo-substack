@@ -85,7 +85,8 @@ jobs:
 
       - name: Run OpenCode CLO team (tier 3)
         id: tier3
-        if: steps.tier1.outcome == 'failure' && steps.tier2.outcome == 'failure'
+        if: steps.tier1.outcome == 'failure' && steps.tier2.outcome != 'success'
+        continue-on-error: true
         timeout-minutes: 9
         uses: anomalyco/opencode/github@latest
         env:
@@ -110,3 +111,17 @@ jobs:
 
       # Note: no separate PR step. The opencode CLI pushes branch
       # opencode/dispatch-* and opens the review PR itself on every run.
+
+      - name: Save partial work (never lose a run)
+        if: always()
+        run: |
+          TODAY=$(date +%F)
+          if [ -d "drafts/$TODAY" ] && [ -n "$(ls -A drafts/$TODAY 2>/dev/null)" ]; then
+            git checkout -B "clo/partial-$TODAY"
+            git add -A -- "drafts/$TODAY"
+            git commit -m "Partial CLO drafts for $TODAY (tiers: ${{ steps.tier1.outcome }}/${{ steps.tier2.outcome }}/${{ steps.tier3.outcome }})" || echo "nothing to commit"
+            git push -f origin "clo/partial-$TODAY"
+            echo "partial work saved to clo/partial-$TODAY"
+          else
+            echo "no drafts written, nothing to save"
+          fi

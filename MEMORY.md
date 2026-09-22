@@ -31,4 +31,5 @@
 
 ## Corrections log
 
+- 2026-09-22: Gemini overload killed 3 runs with zero saved files. Rules added: 3-tier cascade (3.7, 3.5-lite, 3.1-lite, 9 min caps), circuit breaker (sleep 120 once then save partial), always-run partial-save step to clo/partial-DATE branch. Tier gates use != success so a timed-out tier still triggers the next one.
 - (append: date, what broke, rule added)
