@@ -28,10 +28,9 @@ the em dash character. Use commas, periods, or parentheses. No hedging. No fille
 Locked CTA (use this, no mailto links):
 - Article close: Next Week teaser (one line on next topic) plus For now reply question.
   Optional reply keyword in caps (AUDIT, WALKTHROUGH) when the piece offers a live session.
-- Note close (comic week): read the article at [article URL] plus comment prompt:
-  "Which superpower defeats [villain] this week? Reply with your pick."
-- Link rule: article URL plus at most one link per Note. Notes 1 to 4 carry the article
-  link once. Note 5 (Executive) may carry it twice max.
+- Note close (comic week, locked): "Full article drops Wednesday. Which superpower defeats [villain]? Reply with your pick."
+  No links in Notes at draft time. The article URL does not exist yet. Jared adds it by hand at ship time.
+  Never write placeholder links ([Link to Article], [URL], [article URL]).
 - Never promise a legal outcome. Promise a straight answer from one CLO journal.
 
 ## 1. The 5 types (canon, do not change)
@@ -168,8 +167,8 @@ Constraints: under 400 characters ideal, max 600. One idea. Comic panel energy, 
 Shape:
 Line 1: hook (villain move or hero dilemma, specific).
 Line 2 to 3: insight in plain words (one panel of story).
-Line 4: fun ask plus link: "Read this week: [URL]. Which superpower defeats [villain]? Reply with your pick."
-Use UTM `utm_source=substack&utm_medium=note&utm_campaign=clo`.
+Line 4: locked close: "Full article drops Wednesday. Which superpower defeats [villain]? Reply with your pick."
+Use UTM `utm_source=substack&utm_medium=note&utm_campaign=clo` when Jared adds the article URL at ship time.
 
 ### B. Article assist (Substack long form, 1,000 to 1,600 words)
 Follow Jared arc: Hook to Story to Insight to Solution to CTA.
@@ -190,8 +189,8 @@ End article:
 
 For now: [one specific reply question tied to reader work.]
 ---
-Notes (daily):
-Read this week: [article URL]?utm_source=substack&utm_medium=note&utm_campaign=clo. Which superpower defeats [villain]? Reply with your pick.
+Notes (daily, locked close):
+Full article drops Wednesday. Which superpower defeats [villain]? Reply with your pick.
 
 Rules: never use mailto for CTA. Never promise legal outcome. Never hedge the reply question.
 
@@ -228,28 +227,28 @@ Then draft. No plan line in final published copy.
 Three ways to run AI review.
 A: inbox queue. B: outside memo that arrives late. C: one checklist the team reads before code ships.
 You keep authority either way. C keeps proof.
-Read this week: [URL]. Which superpower defeats the Queue Villain? Reply with your pick.
+Full article drops Wednesday. Which superpower defeats the Queue Villain? Reply with your pick.
 
 ### Relator sample (Note)
 Product shipped Friday. Legal saw it Monday. Nobody meant harm. Trust still broke.
 One shared checklist before code ships keeps the team aligned.
-Read this week: [URL]. Which superpower saves the launch crew? Reply with your pick.
+Full article drops Wednesday. Which superpower saves the launch crew? Reply with your pick.
 
 ### Intellectual sample (Note)
 Competence test in one line: can you explain what the model does, where it breaks, and how you defend it.
 ABA Formal Opinion 512 says that is the job. Five questions fix the file: model, data, risk, worst case, defense.
-Read this week: [URL]. Sources inside.
+Full article drops Wednesday. Sources inside.
 
 ### Validator sample (Note)
 Peer CLOs are building review systems in public now. Named stacks. Dated matrices. No vague AI claims.
 Reviewed by a 20 year attorney who runs them inside a real company.
-Read this week: [URL]. Which hero archetype fits this build? Reply with your pick.
+Full article drops Wednesday. Which hero archetype fits this build? Reply with your pick.
 
 ### Executive sample (Note)
 One launch can hold [weeks] of rework with four teams and zero owners.
 Lock it: gates in writing, review SLA set, launches resume on trigger, log on.
 Ship faster because diligence ends early.
-Read this week: [URL]. Which superpower closes the launch? Reply with your pick.
+Full article drops Wednesday. Which superpower closes the launch? Reply with your pick.
 
 ## 10. Sources used for this skill
 

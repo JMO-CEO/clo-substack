@@ -1,7 +1,7 @@
 # Research phase (CLO weekly)
 
-3 tracks, 2 searches each max. Prefer primary sources and current year items.
-Cite every fact with URL plus date. Mark UNVERIFIED anything unsourced.
+3 tracks, 1 search each. Prefer primary sources and current year items.
+Every cited line MUST carry a real working URL (https://...). A line without a URL is marked UNVERIFIED, never High confidence. Never invent a source name, outlet, or URL.
 
 Tracks:
 (a) Legal AI authority: ABA opinions, court rulings (e.g. Heppner privilege), state AI statutes, bar guidance, EU AI Act and GDPR developments.
