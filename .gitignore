@@ -19,3 +19,4 @@ auth.json
 # OneDrive lock files
 ~$*
 *.tmp
+__pycache__/
