@@ -1,13 +1,14 @@
 # clo-comic prompt frames
 
 Derived per week from prompts/manual-60 winners. Never edit manual-60 originals.
-Copy the winning source prompt here, then append the CLO brand overlay once the
-brand guide lands (deferred). Until then, append the interim overlay.
+Copy the winning source prompt here, then append the CLO brand overlay from
+prompts/brand-clo.md (locked v1).
 
-## Interim overlay (append to every adapted image and video prompt)
+## Locked overlay (append verbatim to every adapted image and video prompt)
 
-consistent comic style, recurring hero and villain character consistency,
-flat readable text areas, no watermark, vertical safe for Substack Notes
+ink black canvas #0B0B10, halftone dot shading, signal yellow #FFD21F hero accents,
+hazard magenta #FF2E7E villain accents only, bold condensed caption box top third
+left clear for headline, paper white #F5F1E6 caption text, no watermark, 9:16 safe
 
 ## Weekly frame template
 
