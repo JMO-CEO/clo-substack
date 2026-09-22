@@ -8,5 +8,5 @@ Each Note: under 400 chars ideal, max 600. COUNT the characters before saving. I
 One idea, comic panel energy, one motion verb from prompts/brand-clo.md.
 Header names post day plus buyer type. Plan lines (Target, Drives, Stack) go in comic-pack.md ONLY. Never in the Note file.
 Close every Note with exactly: "Full article drops Wednesday. Which superpower defeats [villain]? Reply with your pick."
-Never write placeholder links like [Link to Article] or [URL]. The article URL does not exist at draft time. No links in Notes 1 to 4. Note 5 ends with the vote prompt only.
+Never write placeholder links like [Link to Article] or [URL]. The article URL does not exist at draft time. No links in any Note. All 5 end with the vote prompt only.
 Copy-paste ready for manual drip posting. Link only, never auto post.
