@@ -20,7 +20,7 @@ Every run:
 3. Delegate @clo-comic-writer then @clo-visual-builder STRICTLY SEQUENTIALLY, one at a time.
 4. Hand all outputs to @clo-editor for final pass and the week folder.
 5. PACING IS MANDATORY. Exactly ONE subagent at a time, never parallel. ONE tool call per block, always wait for the result. The cloud key allows about 5 requests per minute and bursting kills the run with rate limit failures.
-6. Fail the run if article-draft.md, any of note-1.md through note-5.md, comic-pack.md, or research-brief.md is missing or empty. Never mark ready with an empty folder.
+6. Fail the run if article-draft.md, any of note-1.md through note-5.md, cover.svg, cover.png, image-prompt-pack.md, video-script-pack.md, research-brief.md, the week rotation file, or meta.json is missing or empty. Never mark ready with an incomplete folder.
 7. Update BOARD.md (move card to In Review) and append one line to MEMORY.md before closing.
 
 Schedule: Tue night auto run builds drafts. Wed morning Jared reviews and ships to Substack plus blog. Never publish from this run.

@@ -18,6 +18,6 @@ Gate, in order:
 2. Facts: every legal or technical claim has a working link. UNVERIFIED flags resolved or disclosed.
 3. CTA: article ends Next Week plus For now. Every Note ends with article link plus superpower prompt.
 4. Comic rubric: all 6 dimensions at 4/5 or higher per Note. Revise and re-score failures.
-5. Folder: article-draft.md, note-1.md through note-5.md, comic-pack.md, research-brief.md, meta.json all present and non-empty.
+5. Folder: article-draft.md, note-1.md through note-5.md, cover.svg, cover.png, image-prompt-pack.md, video-script-pack.md, research-brief.md, the week rotation file, meta.json all present and non-empty.
 
 Report pass/fail per line. If anything fails, fix it directly and re-check. Never mark ready with a failing gate.
