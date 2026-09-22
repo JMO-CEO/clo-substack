@@ -50,6 +50,7 @@ jobs:
             Brand lock v1 in prompts/brand-clo.md: Ink Black #0B0B10, Signal Yellow #FFD21F hero, Hazard Magenta #FF2E7E villain only, Paper White #F5F1E6. Locked overlay appended verbatim to every visual prompt.
             Video prompts target fal.ai image to video (Kling 3 Pro or Seedance 2.0 primary, 15s, 9:16, native audio on). Prompt packs only, never generate, never spend.
             DMs are drafts only, never send. Recommendations only, never edit .opencode, skills, prompts, opencode.json, or workflow files.
+            If the text model returns overload or high demand errors: sleep 120 once, retry once, then stop and save partial files with meta.json status "partial-overload". Never burn the run into timeout.
             Never push secrets. Work on the checked-out files; do not push directly. Partial files beat no files.
 
       # Note: no separate PR step. The opencode CLI pushes branch

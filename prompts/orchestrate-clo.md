@@ -8,6 +8,7 @@ Request budget, hard limits. Exceed these and the run dies:
 - Max 6 websearch plus webfetch calls for the whole run. Core research takes 3 (1 per track). The rotating deep track takes 3. Research from them plus reference/articles anchors, then stop searching.
 - Batch independent file reads and writes in single blocks. Fewer turns is faster and safer than many small turns.
 - Never run the same failing call twice. On any API 429, wait 60 seconds with sleep 60, then continue. Max 2 waits, then write from what you have.
+- MODEL OVERLOAD CIRCUIT BREAKER. On "high demand", "overloaded", "capacity", or repeated 500 errors from the text model: sleep 120 once and retry the single failed step. If it fails again, STOP THE RUN IMMEDIATELY. Do not retry into the 30 minute timeout. Write every completed file as-is, write meta.json with status "partial-overload" listing which phases finished, and end the run so partial work is saved. A short partial folder beats a timed-out empty run.
 
 Rotation A (visual source): run `date +%V` for the ISO week number. Source index equals week number mod 10, where 0 means S10. That week's source file is prompts/manual-60/Sxx-*.md. All image and video prompts this week adapt from that source plus the locked overlay in prompts/brand-clo.md.
 
