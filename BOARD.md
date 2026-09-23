@@ -12,15 +12,17 @@ Read To Do Today before starting any work. Move the card when done.
 
 ## To Do Today
 
-- [ ] Fill in AGENT.md brackets (mission, monetization, customer)
+- [x] Fill in AGENT.md brackets (mission, monetization, customer) -> completed via weekly run
+- [x] Run weekly CLO orchestrate pipeline (2026-09-23)
 
 ## Doing
 
-- Weekly automation live in repo (workflow plus runbook), awaiting secret plus first run
+- Weekly automation live in repo (workflow plus runbook)
 
 ## In Review
 
 - Brand lock v1 plus Tuesday automation (PR to merge)
+- 2026-09-23 weekly draft set (article, notes, visuals, article-prompt-lab, meta.json)
 
 ## Done
 

@@ -1,0 +1,28 @@
+{
+  "date": "2026-09-23",
+  "iso_week": 39,
+  "rotation_source": "S09",
+  "rotation_track": "article-prompt-lab",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Shadow Prompt",
+  "leland_cites": ["L1S1"],
+  "fal_endpoint": "fal-ai/kling-video/v1.5/pro",
+  "article_word_count": 485,
+  "note_to_day_map": {
+    "Monday": "Director",
+    "Tuesday": "Relator",
+    "Wednesday": "Intellectual",
+    "Thursday": "Validator",
+    "Friday": "Executive"
+  },
+  "source_urls": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+    "https://artificialintelligenceact.eu/",
+    "https://www.uscourts.gov/",
+    "https://openai.com/policies/privacy-policy",
+    "https://modelcontextprotocol.io/",
+    "https://www.lawsociety.org.uk/",
+    "https://substack.com/home"
+  ],
+  "status": "review-ready"
+}

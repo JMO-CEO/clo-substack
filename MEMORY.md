@@ -17,7 +17,7 @@
 
 ## Top hooks that worked
 
-- (append one line per published piece: date, hook, saves or replies)
+- 2026-09-23, "The Shadow Prompt: Securing Enterprise AI Workflows Without Breaking Practice", review-ready draft set completed.
 
 ## Pipeline facts
 
