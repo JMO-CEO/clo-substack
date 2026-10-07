@@ -21,6 +21,7 @@ Read To Do Today before starting any work. Move the card when done.
 ## In Review
 
 - Brand lock v1 plus Tuesday automation (PR to merge)
+- Week of 2026-10-07 run (drafts/2026-10-07, review-ready)
 
 ## Done
 
@@ -32,6 +33,6 @@ Scoreboard: seats this week 0, shipped this week 0, revenue this week $0.
 
 Rotation tracker (ISO week mod 4, one bonus brief per week):
 - Week 0 platform-brief: (pending)
-- Week 1 dm-pack: (pending)
+- Week 1 dm-pack: completed 2026-10-07 (drafts/2026-10-07)
 - Week 2 image-prompt-lab: (pending)
 - Week 3 article-prompt-lab: (pending)
