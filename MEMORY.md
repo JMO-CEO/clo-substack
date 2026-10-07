@@ -17,7 +17,7 @@
 
 ## Top hooks that worked
 
-- (append one line per published piece: date, hook, saves or replies)
+- 2026-10-07, "The Architecture of Precedent: Why in house legal teams must stop reviewing prompts and start building deterministic validation harnesses.", review-ready
 
 ## Pipeline facts
 

@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-07",
+  "iso_week": 41,
+  "rotation_source": "S01-realism.md",
+  "rotation_track": "dm-pack.md",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Prompt Black Hole",
+  "leland_cites": ["L2S1"],
+  "fal_endpoint": "https://fal.ai/models/fal-ai/kling-video/v1.5/pro",
+  "article_word_count": 1002,
+  "notes_map": {
+    "Monday": "Director",
+    "Tuesday": "Relator",
+    "Wednesday": "Intellectual",
+    "Thursday": "Validator",
+    "Friday": "Executive"
+  },
+  "source_urls": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/opinion-512/",
+    "https://artificialintelligenceact.eu/",
+    "https://www.calbar.ca.gov/",
+    "https://support.anthropic.com/en/articles/7996885-data-privacy-at-anthropic",
+    "https://modelcontextprotocol.io/",
+    "https://www.pinecone.io/security/",
+    "https://www.ACC.com/",
+    "https://substack.com/",
+    "https://www.law.com/"
+  ],
+  "status": "review-ready"
+}
