@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-14",
+  "week": 42,
+  "rotation_source": "S02",
+  "rotation_track": "image-prompt-lab",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Phantom Auditor",
+  "leland_cites": ["L1S2"],
+  "fal_endpoint": "fal.ai/models/fal-ai/kling-video/v3/pro/image-to-video",
+  "word_counts": {
+    "article": 1001,
+    "notes": [56, 49, 51, 47, 47]
+  },
+  "note_day_map": {
+    "note-1.md": "Mon Director",
+    "note-2.md": "Tue Relator",
+    "note-3.md": "Wed Intellectual",
+    "note-4.md": "Thu Validator",
+    "note-5.md": "Fri Executive"
+  },
+  "sources": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+    "https://anthropic.com/privacy",
+    "https://www.lexology.com/"
+  ],
+  "status": "review-ready"
+}
