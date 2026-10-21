@@ -16,11 +16,12 @@ Read To Do Today before starting any work. Move the card when done.
 
 ## Doing
 
-- Weekly automation live in repo (workflow plus runbook), awaiting secret plus first run
+- None
 
 ## In Review
 
 - Brand lock v1 plus Tuesday automation (PR to merge)
+- Week 43 run (2026-10-21) drafts generated and verified: article-draft.md, notes 1-5, cover.svg/png, prompt packs, research brief, article-prompt-lab, meta.json
 
 ## Done
 

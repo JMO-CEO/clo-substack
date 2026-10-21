@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-21",
+  "week": 43,
+  "rotation_source": "S03",
+  "rotation_track": "article-prompt-lab",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Legacy Silo",
+  "leland_cites": [
+    "L2S4"
+  ],
+  "fal_endpoint": "fal-ai/kling-video/v1/standard/image-to-video",
+  "word_counts": {
+    "article": 1150,
+    "notes": [
+      78,
+      84,
+      82,
+      80,
+      79
+    ]
+  },
+  "note_day_map": {
+    "note-1.md": "Mon Director",
+    "note-2.md": "Tue Relator",
+    "note-3.md": "Wed Intellectual",
+    "note-4.md": "Thu Validator",
+    "note-5.md": "Fri Executive"
+  },
+  "sources": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+    "https://artificialintelligenceact.eu/",
+    "https://modelcontextprotocol.io/",
+    "https://openai.com/security",
+    "https://substack.com/",
+    "https://www.jdsupra.com/"
+  ],
+  "status": "review-ready"
+}
