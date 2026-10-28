@@ -16,10 +16,11 @@ Read To Do Today before starting any work. Move the card when done.
 
 ## Doing
 
-- Weekly automation live in repo (workflow plus runbook), awaiting secret plus first run
+- Weekly automation ISO week 44 completed (review-ready draft in drafts/2026-10-28)
 
 ## In Review
 
+- 2026-10-28 weekly draft (article, 5 notes, covers, prompt packs, platform brief) PR to merge
 - Brand lock v1 plus Tuesday automation (PR to merge)
 
 ## Done
@@ -31,7 +32,7 @@ Read To Do Today before starting any work. Move the card when done.
 Scoreboard: seats this week 0, shipped this week 0, revenue this week $0.
 
 Rotation tracker (ISO week mod 4, one bonus brief per week):
-- Week 0 platform-brief: (pending)
+- Week 0 platform-brief: (completed 2026-10-28)
 - Week 1 dm-pack: (pending)
 - Week 2 image-prompt-lab: (pending)
 - Week 3 article-prompt-lab: (pending)

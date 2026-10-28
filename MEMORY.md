@@ -17,7 +17,7 @@
 
 ## Top hooks that worked
 
-- (append one line per published piece: date, hook, saves or replies)
+- 2026-10-28: "The $8.8 Billion Illusion" (ISO Week 44, review-ready draft generated)
 
 ## Pipeline facts
 

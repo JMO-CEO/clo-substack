@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-28",
+  "iso_week": 44,
+  "rotation_source": "S04",
+  "rotation_track": "platform-brief",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Phantom Liability",
+  "leland_cites": [
+    "[L2S1]"
+  ],
+  "fal_endpoint": "fal.ai/models/fal-ai/kling-video/v1.5/pro/image-to-video",
+  "word_count": 1240,
+  "note_to_day_map": {
+    "note-1.md": "Monday — Director",
+    "note-2.md": "Tuesday — Relator",
+    "note-3.md": "Wednesday — Intellectual",
+    "note-4.md": "Thursday — Validator",
+    "note-5.md": "Friday — Executive"
+  },
+  "source_urls": [
+    "https://www.artificiallawyer.com/2026/10/21/ai-is-not-a-legal-entity-says-law-society/",
+    "https://www.artificiallawyer.com/2026/10/21/august-applies-agents-to-law-firm-productization/",
+    "https://www.artificiallawyer.com/2026/10/21/legora-raises-550m-at-8-8bn-valuation/"
+  ],
+  "status": "review-ready"
+}
