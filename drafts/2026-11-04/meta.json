@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-04",
+  "week": 45,
+  "rotation_source": "S05",
+  "rotation_track": "dm-pack",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Phantom NDA",
+  "leland_cites": [
+    "L1S3"
+  ],
+  "fal_endpoint": "fal.ai/models/kling-video/v1.5/pro",
+  "word_counts": {
+    "article": 1045,
+    "notes": [
+      294,
+      303,
+      304,
+      317,
+      304
+    ]
+  },
+  "note_day_map": {
+    "note-1.md": "Mon Director",
+    "note-2.md": "Tue Relator",
+    "note-3.md": "Wed Intellectual",
+    "note-4.md": "Thu Validator",
+    "note-5.md": "Fri Executive"
+  },
+  "sources": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+    "https://artificialintelligenceact.eu/",
+    "https://www.uscourts.gov/",
+    "https://www.nist.gov/itl/ai-risk-management-framework",
+    "https://support.anthropic.com/",
+    "https://modelcontextprotocol.io/",
+    "https://www.cloc.org/",
+    "https://www.artificiallawyer.com/",
+    "https://www.lexisnexis.com/"
+  ],
+  "status": "review-ready"
+}
