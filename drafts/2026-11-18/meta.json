@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-18",
+  "week": "2026-11-18",
+  "iso_week": 47,
+  "rotation_source": "S07-seedance50.md",
+  "rotation_track": "article-prompt-lab",
+  "model_text": "google/gemini-3.5-flash-lite",
+  "villain": "The Legacy Silo",
+  "leland_cites": [
+    "L3S1"
+  ],
+  "fal_endpoint": "fal-ai/kling-video/v1.5/pro",
+  "word_counts": {
+    "article": 1080,
+    "notes": [
+      74,
+      76,
+      78,
+      77,
+      75
+    ]
+  },
+  "sources": [
+    "https://www.americanbar.org/groups/professional_responsibility/publications/ethics_opinions/",
+    "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+    "https://support.anthropic.com/en/articles/7996885-data-privacy-at-anthropic",
+    "https://modelcontextprotocol.io/introduction"
+  ],
+  "status": "review-ready"
+}

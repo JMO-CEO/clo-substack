@@ -17,7 +17,7 @@
 
 ## Top hooks that worked
 
-- (append one line per published piece: date, hook, saves or replies)
+- 2026-11-18: Breaking the Legacy Silo: How General Counsel Ship Deterministic AI Workflows (Week 47 run completed)
 
 ## Pipeline facts
 
